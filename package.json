@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
+    "server": "node ./lib/server.js",
     "linter": "node ./node_modules/eslint/bin/eslint.js .",
     "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix"
   },
@@ -74,6 +75,7 @@
     "execa": "^5.1.1",
     "exit": "^0.1.2",
     "expect": "^28.0.2",
+    "express": "^4.18.1",
     "fast-json-stable-stringify": "^2.1.0",
     "fb-watchman": "^2.0.1",
     "fill-range": "^7.0.1",
