@@ -1,12 +1,12 @@
 const ExplorerController = require("./../../lib/controllers/ExplorerController");
 
-describe("Pruebas de unidad de la clase ExplorerController", () =>{
-    test("Requerimiento 1: Filtrar por misión", () =>{
+describe("Pruebas de unidad de la clase ExplorerController", () => {
+    test("Requerimiento 1: Filtrar por misión", () => {
         const explorersByMission = ExplorerController.getExplorersByMission("node");
         expect(explorersByMission.length).toBe(10);
     });
 
-    test("Requerimiento 2: Obtener los Usernames de los explorers con esa misión", () =>{
+    test("Requerimiento 2: Obtener los Usernames de los explorers con esa misión", () => {
         const explorerUsernames = ExplorerController.getExplorersUsernamesByMission("node");
         expect(explorerUsernames).toContain("ajolonauta1");
         expect(explorerUsernames).toContain("ajolonauta2");
@@ -20,8 +20,13 @@ describe("Pruebas de unidad de la clase ExplorerController", () =>{
         expect(explorerUsernames).toContain("ajolonauta15");
     });
 
-    test("Requerimiento 3: Obtener el numero de explorers de esa misión", () =>{
+    test("Requerimiento 3: Obtener el numero de explorers de esa misión", () => {
         const numberOfExplorersByMission = ExplorerController.getExplorersAmountByMission("node");
         expect(numberOfExplorersByMission).toBe(10);
+    });
+
+    test("Requerimiento 4: Obtener lista de explorers que contengan el stack", () => {
+        const explorersByStack = ExplorerController.getExplorersByStack("javascript");
+        expect(explorersByStack.length).toBe(11);
     });
 });
