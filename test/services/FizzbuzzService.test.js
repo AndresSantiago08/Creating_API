@@ -24,4 +24,28 @@ describe("Test de la clase FizzbuzzService", () => {
         const UpdatedExplorer = FizzbuzzService.applyValidationInExplorer(explorer);
         expect(UpdatedExplorer.trick).toBe("FIZZBUZZ");
     });
+
+    test("Requerimiento 5: Number diferente de múltiplos de 3 y 5", () => {
+        const number = 4;
+        const TypeExplorer = FizzbuzzService.applyValidationInNumber(number);
+        expect(TypeExplorer).toBe(number);
+    });
+
+    test("Requerimiento 6: Number múltiplo de 3, pero no de 5", () => {
+        const number = 6;
+        const TypeExplorer = FizzbuzzService.applyValidationInNumber(number);
+        expect(TypeExplorer).toBe("FIZZ");
+    });
+
+    test("Requerimiento 7: Number múltiplo de 5, pero no de 3", () => {
+        const number = 25;
+        const TypeExplorer = FizzbuzzService.applyValidationInNumber(number);
+        expect(TypeExplorer).toBe("BUZZ");
+    });
+
+    test("Requerimiento 8: Number múltible de 5 y 3", () => {
+        const number = 45;
+        const TypeExplorer = FizzbuzzService.applyValidationInNumber(number);
+        expect(TypeExplorer).toBe("FIZZBUZZ");
+    });
 });
