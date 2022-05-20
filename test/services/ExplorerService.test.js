@@ -14,10 +14,16 @@ describe("Test de clase ExplorerService", () => {
         expect(explorersInNode).toBe(2);
     });
 
-    test("Requerimiento 3: Mostrar los githubUsername de todos los explorers con mission node", () =>{
+    test("Requerimiento 3: Mostrar los githubUsername de todos los explorers con mission node", () => {
         const explorer = ExplorersRead.readJsonFile("./test/utils/prueba.json");
         const GithubUsernames = ExplorerService.getExplorersUsernamesByMission(explorer, "node");
         expect(GithubUsernames).toContain("ajolonauta2");
         expect(GithubUsernames).toContain("ajolonauta4");
+    });
+
+    test("Requerimiento 4: Filtrar explorers por stack", () => {
+        const explorer = ExplorersRead.readJsonFile("./test/utils/prueba.json");
+        const ExplorersByStack = ExplorerService.getExplorerByStack(explorer, "elixir");
+        expect(ExplorersByStack.length).toBe(2);
     });
 });
